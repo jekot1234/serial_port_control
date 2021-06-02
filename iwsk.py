@@ -22,7 +22,13 @@ class SerialControllMainWindow(Ui_MainWindow):
 
     def send_data(self):
         data = self.sendText.toPlainText()
-        print(data)
+        self.serial_port.write(data.encode())
+        self.serial_port.write(b'\0')
+
+    def recieve_data(self):
+        data = self.serial_port.read_until(expected=b'\0')
+        data = data.decode()
+        self.receivText.setPlainText(data)
 
     def open_com_port(self):
         self.serial_port.open()
@@ -112,6 +118,7 @@ class SerialControllMainWindow(Ui_MainWindow):
         self.closePort.clicked.connect(self.close_com_port)
 
         self.send.clicked.connect(self.send_data)
+        self.recieve.clicked.connect(self.recieve_data)
 
         self.refreshCOMList.clicked.connect(self.detect_com_ports)
         self.autoBauding.clicked.connect(self.baud_rate_test)

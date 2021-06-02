@@ -136,6 +136,7 @@ class Ui_MainWindow(object):
         self.groupBox_9.setObjectName("groupBox_9")
         self.receivText = QtWidgets.QPlainTextEdit(self.groupBox_9)
         self.receivText.setGeometry(QtCore.QRect(10, 20, 521, 541))
+        self.receivText.setReadOnly(True)
         self.receivText.setObjectName("receivText")
         self.recieve = QtWidgets.QPushButton(self.groupBox_9)
         self.recieve.setEnabled(False)
