@@ -6,27 +6,14 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>1149</width>
-    <height>946</height>
+    <width>1145</width>
+    <height>962</height>
    </rect>
   </property>
   <property name="windowTitle">
    <string>MainWindow</string>
   </property>
   <widget class="QWidget" name="centralwidget">
-   <widget class="QCheckBox" name="DTR_DSR">
-    <property name="geometry">
-     <rect>
-      <x>380</x>
-      <y>40</y>
-      <width>70</width>
-      <height>17</height>
-     </rect>
-    </property>
-    <property name="text">
-     <string>DTR/DSR</string>
-    </property>
-   </widget>
    <widget class="QComboBox" name="portSelect">
     <property name="geometry">
      <rect>
@@ -164,6 +151,9 @@
      </item>
     </widget>
     <widget class="QPushButton" name="autoBauding">
+     <property name="enabled">
+      <bool>false</bool>
+     </property>
      <property name="geometry">
       <rect>
        <x>10</x>
@@ -189,14 +179,117 @@
     <property name="title">
      <string>Format znaku</string>
     </property>
-    <widget class="QComboBox" name="symbolFormat">
+    <widget class="QComboBox" name="characterBytesize">
+     <property name="enabled">
+      <bool>false</bool>
+     </property>
+     <property name="geometry">
+      <rect>
+       <x>60</x>
+       <y>20</y>
+       <width>41</width>
+       <height>22</height>
+      </rect>
+     </property>
+     <item>
+      <property name="text">
+       <string>7</string>
+      </property>
+     </item>
+     <item>
+      <property name="text">
+       <string>8</string>
+      </property>
+     </item>
+    </widget>
+    <widget class="QLabel" name="label_2">
      <property name="geometry">
       <rect>
        <x>10</x>
-       <y>40</y>
-       <width>91</width>
+       <y>20</y>
+       <width>47</width>
+       <height>16</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>Długość</string>
+     </property>
+    </widget>
+    <widget class="QComboBox" name="characterStopbits">
+     <property name="enabled">
+      <bool>false</bool>
+     </property>
+     <property name="geometry">
+      <rect>
+       <x>60</x>
+       <y>50</y>
+       <width>41</width>
        <height>22</height>
       </rect>
+     </property>
+     <item>
+      <property name="text">
+       <string>1</string>
+      </property>
+     </item>
+     <item>
+      <property name="text">
+       <string>2</string>
+      </property>
+     </item>
+    </widget>
+    <widget class="QLabel" name="label_3">
+     <property name="geometry">
+      <rect>
+       <x>10</x>
+       <y>50</y>
+       <width>47</width>
+       <height>21</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>Stop</string>
+     </property>
+    </widget>
+    <widget class="QComboBox" name="characterParity">
+     <property name="enabled">
+      <bool>false</bool>
+     </property>
+     <property name="geometry">
+      <rect>
+       <x>60</x>
+       <y>80</y>
+       <width>41</width>
+       <height>22</height>
+      </rect>
+     </property>
+     <item>
+      <property name="text">
+       <string>E</string>
+      </property>
+     </item>
+     <item>
+      <property name="text">
+       <string>O</string>
+      </property>
+     </item>
+     <item>
+      <property name="text">
+       <string>N</string>
+      </property>
+     </item>
+    </widget>
+    <widget class="QLabel" name="label_4">
+     <property name="geometry">
+      <rect>
+       <x>10</x>
+       <y>80</y>
+       <width>47</width>
+       <height>21</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>Kontrola</string>
      </property>
     </widget>
    </widget>
@@ -236,6 +329,19 @@
      </property>
      <property name="text">
       <string>RTS/CTS</string>
+     </property>
+    </widget>
+    <widget class="QCheckBox" name="DTR_DSR">
+     <property name="geometry">
+      <rect>
+       <x>10</x>
+       <y>20</y>
+       <width>70</width>
+       <height>17</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>DTR/DSR</string>
      </property>
     </widget>
    </widget>
@@ -283,17 +389,17 @@
       <string>RTS</string>
      </property>
     </widget>
-    <widget class="QCheckBox" name="autoFlowCtrl">
+    <widget class="QCheckBox" name="manual">
      <property name="geometry">
       <rect>
        <x>20</x>
        <y>80</y>
-       <width>101</width>
+       <width>70</width>
        <height>17</height>
       </rect>
      </property>
      <property name="text">
-      <string>Automatyczne</string>
+      <string>Ręczne</string>
      </property>
     </widget>
    </widget>
@@ -312,8 +418,8 @@
     <widget class="QLabel" name="label_7">
      <property name="geometry">
       <rect>
-       <x>40</x>
-       <y>70</y>
+       <x>60</x>
+       <y>50</y>
        <width>47</width>
        <height>13</height>
       </rect>
@@ -322,37 +428,75 @@
       <string>CTS</string>
      </property>
     </widget>
-    <widget class="QPlainTextEdit" name="DSR">
-     <property name="geometry">
-      <rect>
-       <x>20</x>
-       <y>30</y>
-       <width>16</width>
-       <height>16</height>
-      </rect>
-     </property>
-    </widget>
-    <widget class="QPlainTextEdit" name="CTS">
-     <property name="geometry">
-      <rect>
-       <x>20</x>
-       <y>70</y>
-       <width>16</width>
-       <height>16</height>
-      </rect>
-     </property>
-    </widget>
     <widget class="QLabel" name="label_6">
      <property name="geometry">
       <rect>
-       <x>40</x>
-       <y>30</y>
+       <x>60</x>
+       <y>20</y>
        <width>47</width>
        <height>13</height>
       </rect>
      </property>
      <property name="text">
       <string>DSR</string>
+     </property>
+    </widget>
+    <widget class="QPushButton" name="monitoring_start">
+     <property name="enabled">
+      <bool>false</bool>
+     </property>
+     <property name="geometry">
+      <rect>
+       <x>10</x>
+       <y>80</y>
+       <width>51</width>
+       <height>23</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>Start</string>
+     </property>
+    </widget>
+    <widget class="QPushButton" name="monitoring_stop">
+     <property name="enabled">
+      <bool>false</bool>
+     </property>
+     <property name="geometry">
+      <rect>
+       <x>70</x>
+       <y>80</y>
+       <width>51</width>
+       <height>23</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>Stop</string>
+     </property>
+    </widget>
+    <widget class="QLabel" name="DSR">
+     <property name="geometry">
+      <rect>
+       <x>20</x>
+       <y>20</y>
+       <width>31</width>
+       <height>16</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string/>
+     </property>
+    </widget>
+    <widget class="QLabel" name="CTS">
+     <property name="geometry">
+      <rect>
+       <x>20</x>
+       <y>50</y>
+       <width>31</width>
+       <height>16</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string/>
      </property>
     </widget>
    </widget>
@@ -368,20 +512,7 @@
     <property name="title">
      <string>Wybór terminatora</string>
     </property>
-    <widget class="QCheckBox" name="ownTerminator">
-     <property name="geometry">
-      <rect>
-       <x>90</x>
-       <y>70</y>
-       <width>70</width>
-       <height>17</height>
-      </rect>
-     </property>
-     <property name="text">
-      <string>Własny</string>
-     </property>
-    </widget>
-    <widget class="QComboBox" name="predefTerminator">
+    <widget class="QComboBox" name="chosen_term">
      <property name="geometry">
       <rect>
        <x>10</x>
@@ -390,10 +521,35 @@
        <height>22</height>
       </rect>
      </property>
+     <item>
+      <property name="text">
+       <string>CR-LF</string>
+      </property>
+     </item>
+     <item>
+      <property name="text">
+       <string>CR</string>
+      </property>
+     </item>
+     <item>
+      <property name="text">
+       <string>LF</string>
+      </property>
+     </item>
+     <item>
+      <property name="text">
+       <string>brak</string>
+      </property>
+     </item>
+     <item>
+      <property name="text">
+       <string>własny</string>
+      </property>
+     </item>
     </widget>
     <widget class="QLineEdit" name="userdefTerminator">
      <property name="enabled">
-      <bool>false</bool>
+      <bool>true</bool>
      </property>
      <property name="geometry">
       <rect>
@@ -403,15 +559,55 @@
        <height>20</height>
       </rect>
      </property>
+     <property name="toolTip">
+      <string comment="dupala" extracomment="dupa"/>
+     </property>
+     <property name="statusTip">
+      <string>dupa1</string>
+     </property>
+     <property name="whatsThis">
+      <string>dupa2</string>
+     </property>
+     <property name="accessibleName">
+      <string>dupa3</string>
+     </property>
+     <property name="accessibleDescription">
+      <string>dupa4</string>
+     </property>
+     <property name="inputMask">
+      <string/>
+     </property>
+     <property name="text">
+      <string/>
+     </property>
+     <property name="placeholderText">
+      <string>HEX np. ff ff</string>
+     </property>
+    </widget>
+    <widget class="QPushButton" name="update_terminator">
+     <property name="enabled">
+      <bool>false</bool>
+     </property>
+     <property name="geometry">
+      <rect>
+       <x>90</x>
+       <y>70</y>
+       <width>71</width>
+       <height>23</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>Aktualizuj</string>
+     </property>
     </widget>
    </widget>
    <widget class="QGroupBox" name="groupBox_8">
     <property name="geometry">
      <rect>
-      <x>20</x>
+      <x>30</x>
       <y>290</y>
       <width>541</width>
-      <height>631</height>
+      <height>641</height>
      </rect>
     </property>
     <property name="title">
@@ -433,8 +629,8 @@
      </property>
      <property name="geometry">
       <rect>
-       <x>310</x>
-       <y>580</y>
+       <x>440</x>
+       <y>590</y>
        <width>75</width>
        <height>23</height>
       </rect>
@@ -443,46 +639,57 @@
       <string>Wyślij</string>
      </property>
     </widget>
-    <widget class="QRadioButton" name="sendTextMode">
+    <widget class="QPushButton" name="send_transaction">
+     <property name="enabled">
+      <bool>false</bool>
+     </property>
      <property name="geometry">
       <rect>
-       <x>90</x>
-       <y>570</y>
-       <width>101</width>
-       <height>17</height>
-      </rect>
-     </property>
-     <property name="text">
-      <string>Tryb tekstowy</string>
-     </property>
-     <property name="checked">
-      <bool>true</bool>
-     </property>
-    </widget>
-    <widget class="QRadioButton" name="sendBinMode">
-     <property name="geometry">
-      <rect>
-       <x>90</x>
+       <x>120</x>
        <y>590</y>
-       <width>82</width>
-       <height>17</height>
-      </rect>
-     </property>
-     <property name="text">
-      <string>Tryb binarny</string>
-     </property>
-    </widget>
-    <widget class="QPushButton" name="openFile">
-     <property name="geometry">
-      <rect>
-       <x>420</x>
-       <y>580</y>
-       <width>75</width>
+       <width>71</width>
        <height>23</height>
       </rect>
      </property>
      <property name="text">
-      <string>Otwórz</string>
+      <string>Transakcja</string>
+     </property>
+    </widget>
+    <widget class="QLineEdit" name="transaction_timeout">
+     <property name="enabled">
+      <bool>true</bool>
+     </property>
+     <property name="geometry">
+      <rect>
+       <x>210</x>
+       <y>591</y>
+       <width>71</width>
+       <height>21</height>
+      </rect>
+     </property>
+     <property name="toolTip">
+      <string/>
+     </property>
+     <property name="statusTip">
+      <string/>
+     </property>
+     <property name="whatsThis">
+      <string/>
+     </property>
+     <property name="accessibleName">
+      <string/>
+     </property>
+     <property name="accessibleDescription">
+      <string/>
+     </property>
+     <property name="inputMask">
+      <string/>
+     </property>
+     <property name="text">
+      <string/>
+     </property>
+     <property name="placeholderText">
+      <string>timeout w s</string>
      </property>
     </widget>
    </widget>
@@ -492,7 +699,7 @@
       <x>590</x>
       <y>290</y>
       <width>541</width>
-      <height>631</height>
+      <height>641</height>
      </rect>
     </property>
     <property name="title">
@@ -517,43 +724,30 @@
      </property>
      <property name="geometry">
       <rect>
-       <x>330</x>
-       <y>580</y>
+       <x>340</x>
+       <y>590</y>
        <width>75</width>
        <height>23</height>
       </rect>
      </property>
      <property name="text">
-      <string>Odbierz</string>
+      <string>Odbieraj</string>
      </property>
     </widget>
-    <widget class="QRadioButton" name="recTextMode">
+    <widget class="QPushButton" name="cancelRecieving">
+     <property name="enabled">
+      <bool>false</bool>
+     </property>
      <property name="geometry">
       <rect>
-       <x>110</x>
-       <y>570</y>
-       <width>131</width>
-       <height>17</height>
-      </rect>
-     </property>
-     <property name="text">
-      <string>Tryb tekstowy</string>
-     </property>
-     <property name="checked">
-      <bool>true</bool>
-     </property>
-    </widget>
-    <widget class="QRadioButton" name="recBinMode">
-     <property name="geometry">
-      <rect>
-       <x>110</x>
+       <x>440</x>
        <y>590</y>
-       <width>82</width>
-       <height>17</height>
+       <width>75</width>
+       <height>23</height>
       </rect>
      </property>
      <property name="text">
-      <string>Tryb binarny</string>
+      <string>Przerwij</string>
      </property>
     </widget>
    </widget>
@@ -570,6 +764,9 @@
      <string>Testowanie Łącza</string>
     </property>
     <widget class="QPushButton" name="ping">
+     <property name="enabled">
+      <bool>false</bool>
+     </property>
      <property name="geometry">
       <rect>
        <x>10</x>
@@ -698,6 +895,22 @@
       <set>Qt::AlignCenter</set>
      </property>
     </widget>
+    <widget class="QCheckBox" name="listen_block">
+     <property name="enabled">
+      <bool>false</bool>
+     </property>
+     <property name="geometry">
+      <rect>
+       <x>360</x>
+       <y>80</y>
+       <width>101</width>
+       <height>21</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>Blokuj nasłuch</string>
+     </property>
+    </widget>
    </widget>
    <zorder>groupBox_7</zorder>
    <zorder>groupBox_4</zorder>
@@ -705,7 +918,6 @@
    <zorder>groupBox_6</zorder>
    <zorder>groupBox_5</zorder>
    <zorder>groupBox_2</zorder>
-   <zorder>DTR_DSR</zorder>
    <zorder>portSelect</zorder>
    <zorder>refreshCOMList</zorder>
    <zorder>groupBox_3</zorder>
